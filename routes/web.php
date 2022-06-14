@@ -13,9 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/a', function () {
     return view('welcome');
 });
 
-Route::get('add-student', [StudentController::class, 'create']);
+Route::get('/', [StudentController::class, 'create']);
 Route::post('add-student', [StudentController::class, 'store']);
+Route::get('students', [StudentController::class, 'index']);
+Route::get('edit-data/{id}', [StudentController::class, 'edit']);
+Route::put('update-student/{id}', [StudentController::class, 'update']);
+Route::get('delete-student/{id}', [StudentController::class, 'destroy']);
+Route::get('image', [App\Http\Controllers\StudentController::class, 'image']);
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -12,6 +12,7 @@
   </head>
   <body>
   <div class="container">
+    <a href="{{url('/students')}}" class="btn btn-success">showdata</a>
     <div class="row justify-content-center">
         <div class="col-md-6">
 
