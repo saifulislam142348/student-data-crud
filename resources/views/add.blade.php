@@ -32,18 +32,30 @@
                         <div class="form-group mb-3">
                             <label for="">Student Name</label>
                             <input type="text" name="name" class="form-control">
+                            @error('name')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Student Email</label>
                             <input type="text" name="email" class="form-control">
+                            @error('email')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Student Course</label>
                             <input type="text" name="course" class="form-control">
+                            @error('course')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Student Section</label>
                             <input type="text" name="section" class="form-control">
+                            @error('section')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
                         </div>
                         <div class="form-group mb-3">
                             <button type="submit" class="btn btn-primary">Save Student</button>

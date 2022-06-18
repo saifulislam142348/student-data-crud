@@ -14,11 +14,30 @@ class StudentController extends Controller
     }
     
     public function store(Request $request){
+        $rules=['name'=>'required|max:10',
+    'email'=>'required|email|unique:students',
+    'course'=>'required|max:5',
+    'section'=>'required|max:10'
+    ];
+$comment=['name.required'=>'Enter your value',
+           'name.max'=>'Your name can notn contain more than 10 charecter',
+           'email.required'=>'Enter the email',
+           'email.unique'=>'already  the email exitest',
+           'email.email'=>'Must be  the email',
+           'course.required'=>'Enter your course',
+           'course.max'=>' course name more the 5 charecter',
+           'section.required'=>' section name must be select',
+           'section.max'=>' section name more the 5 charecter'
+
+
+];
+$this->validate($request,$rules,$comment);
         $student= new student();
         $student->name=$request->input('name');
         $student->email=$request->input('email');
         $student->course=$request->input('course');
         $student->section=$request->input('section');
+
         $student->save();
         return redirect()->back()->with('status','data insert successfully');
 
